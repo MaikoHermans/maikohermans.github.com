@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>iOS: Use Music Library With Simulator </title>
+    <meta name="description" content="">
+    <meta name="author" content="Maiko Hermans">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Maiko Hermans' Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+
+<div class="page-header">
+  <h1>iOS: Use Music Library With Simulator  </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>28 December 2016</span>
+    </div>
+    <div class="content">
+      
+<h3 id="music-in-the-simulator">Music in the Simulator</h3>
+<p>When you are building a music player application it is general believe that you will have to test this on an actual device since you can’t access your music library on the simulator.<br />
+However this isn’t true, there is a way to test this on the simulator. It will require some work tho.</p>
+
+<h4 id="requirements">Requirements</h4>
+<ul>
+  <li>An device with a music library on it</li>
+  <li><a href="http://www.i-funbox.com">iFunBox</a></li>
+  <li>The id of the simulator you want to test this on</li>
+</ul>
+
+<p>#### How To<br />
+ Now we will go into how you will actually get this working.<br />
+ First you will need to know that you can not do this in one swoop for every simulator.<br />
+ Every device in the simulator has it’s own id and is in fact it’s own device.<br />
+ If you want to be able to access the music library you will have to do this for <strong>every single device</strong> you require this to work on.</p>
+
+<p>What we will be doing is copying the entire music library from your phone to the simulator which will allow us to use this inside the simulator.<br />
+ <strong>It might be smart</strong> to resync your phone with only a few songs/albums so you won’t be dealing with over 22GB in music.</p>
+
+<p>First you will need to know what the id of the simulator is.</p>
+<pre><code class="language-bash"> xcrun simctl list
+</code></pre>
+
+<p>Will return a list that will tell you every id of every device</p>
+<pre><code class="language-bash"> == Devices ==
+-- iOS 10.2 --
+    iPhone 5 (8E173D11-B725-4966-B525-xxxx) (Shutdown)
+    iPhone 5s (FEF4993D-DF5A-4802-B543-xxxx) (Shutdown)
+    iPhone 6 (F215D467-A0C9-433D-AB7B-xxxx) (Shutdown)
+    iPhone 6 Plus (E99E1067-CFB3-43E5-83C8-xxxx) (Shutdown)
+    iPhone 6s (9CC159E4-C572-4CE8-978C-xxxx) (Shutdown)
+    iPhone 6s Plus (2727C37D-2CB9-4F0C-xxxx) (Shutdown)
+    iPhone 7 (8A14CCDB-6AEE-49FA-B65F-xxxx) (Booted)
+    iPhone 7 Plus (7C19745F-4FE6-44AD-94A7-xxxx) (Shutdown)
+    iPhone SE (BA0F4C31-A0FB-4465-93E9-xxxx) (Shutdown)
+    iPad Retina (B2A34246-901C-4C4F-824C-xxxx) (Shutdown)
+    iPad Air (57135CCC-1117-40C1-8D43-xxxx) (Shutdown)
+    iPad Air 2 (E42EBC0D-EF02-4A02-8190-xxxx) (Shutdown)
+    iPad Pro (9.7 inch) (CEF665A1-4CD7-4C66-B774-xxxx) (Shutdown)
+    iPad Pro (12.9 inch) (1D611039-1208-4D65-94E6-xxxx) (Shutdown)
+-- tvOS 10.1 --
+    Apple TV 1080p (94E65157-CC59-4BB5-801D-xxxx) (Shutdown)
+-- watchOS 3.1 --
+    Apple Watch - 38mm (62FEA43E-521E-4BFD-A9BB-xxxx) (Shutdown)
+    Apple Watch - 42mm (0686C55C-9E2B-4208-927D-xxxx) (Shutdown)
+    Apple Watch Series 2 - 38mm (8DB7FD6C-0D44-4ED1-85EB-xxxx) (Shutdown)
+    Apple Watch Series 2 - 42mm (19A73926-2506-452E-8196-xxxx) (Shutdown)
+-- Unavailable: com.apple.CoreSimulator.SimRuntime.iOS-10-1 --
+    iPhone 5 (D03CCA6F-5E98-4E48-9582-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPhone 5s (F61B5E14-D296-4679-8D91-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPhone 6 (2A92FC53-AFB4-4C46-AFCB-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPhone 6 Plus (B986B9A4-361C-490E-A7ED-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPhone 6s (E3CE12AB-5DB2-4731-B4EB-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPhone 6s Plus (7C68DCC1-F4F6-4ABE-8C58-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPhone 7 (392550E5-7FFA-4173-A98F-xxxx) (Creating) (unavailable, runtime profile not found)
+    iPhone 7 Plus (913969FA-9D72-427B-900D-xxxx) (Creating) (unavailable, runtime profile not found)
+    iPhone SE (282C2416-CE56-4B93-9856-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPad Retina (0A62734E-7770-4B9F-9B56-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPad Air (87C237B6-F7EB-4EF6-AC40-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPad Air 2 (438F5D25-8C65-4FA4-869F-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPad Pro (9.7 inch) (F10F8EE6-6B96-4C26-AFB1-xxxx) (Shutdown) (unavailable, runtime profile not found)
+    iPad Pro (12.9 inch) (2F35AAF4-8D34-4969-BD82-xxxx) (Shutdown) (unavailable, runtime profile not found)
+</code></pre>
+
+<p>Take down the ID of the device you require.</p>
+
+<p>Next we will actually navigate to the directory of this device.</p>
+
+<pre><code class="language-bash">[yourHD] -&gt; Users -&gt; [yourusername] -&gt; Library -&gt; Developer -&gt; CoreSimulator -&gt; Devices -&gt; [the ID you obtained in the previous step] -&gt; data -&gt; Media -&gt; Itunes_Control -&gt; Itunes
+</code></pre>
+
+<p>Leave this directory open as you will need it in the next step.</p>
+
+<p>Next up we will open the <code>iFunBox</code> application, you will need to connect your phone to your computer for this as <code>iFunBox</code> will allow is to look into the directories of your iPhone.<br />
+When you’ve opened iFunBox you will need to select <code>Raw File System</code>. 
+In here you will find the directory <code>Itunes_Connect</code></p>
+
+<p><img src="/assets/img/ifunbox.png" width="600px" /></p>
+
+<p>From that directory on you will need to copy the following directories and files to the simulator directory you opened in the previous step</p>
+<pre><code>Music
+iTunes/Artwork
+iTunes/MediaLibrary.sqlitedb
+iTunes/MediaLibrary.sqlitedb-shm
+iTunes/MediaLibrary.sqlitedb-wal
+</code></pre>
+
+<p>If you ever bought music you should also grab the following directory</p>
+<pre><code>Raw File System/Purchases
+</code></pre>
+
+<p>That’s it you should now be able to open your application and see the music files appear. You should even be able to play them!<br />
+<img src="/assets/img/result.png" width="600px" /></p>
+
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#iOS-ref">iOS <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#XCode-ref">XCode <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/lessons/2011/12/29/jekyll-introduction" title="Jekyll Introduction">&laquo; Previous</a></li>
+    
+      <li><a href="/archive.html">Archive</a></li>
+    
+      <li class="next disabled"><a>Next &rarr;</a>
+    
+    </ul>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p>&copy; 2016 Maiko Hermans
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
