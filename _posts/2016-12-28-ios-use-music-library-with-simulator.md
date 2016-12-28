@@ -27,11 +27,13 @@ What we will be doing is copying the entire music library from your phone to the
 **It might be smart** to resync your phone with only a few songs/albums so you won't be dealing with over 22GB in music.
 
 First you will need to know what the id of the simulator is.
+
 ```bash
 xcrun simctl list
 ```
 
 Will return a list that will tell you every id of every device
+
 ```bash  
 == Devices ==
 -- iOS 10.2 --
@@ -90,6 +92,7 @@ In here you will find the directory `Itunes_Connect`
 <img src="/assets/img/ifunbox.png" width="600px" />
 
 From that directory on you will need to copy the following directories and files to the simulator directory you opened in the previous step
+
 ```
 Music
 iTunes/Artwork

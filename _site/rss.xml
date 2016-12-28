@@ -5,8 +5,8 @@
         <description>Maiko Hermans' Blog - Maiko Hermans</description>
         <link>http://username.github.io</link>
         <atom:link href="http://username.github.io/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Wed, 28 Dec 2016 18:02:40 +0100</lastBuildDate>
-        <pubDate>Wed, 28 Dec 2016 18:02:40 +0100</pubDate>
+        <lastBuildDate>Wed, 28 Dec 2016 18:06:47 +0100</lastBuildDate>
+        <pubDate>Wed, 28 Dec 2016 18:06:47 +0100</pubDate>
         <ttl>60</ttl>
 
 
@@ -34,10 +34,12 @@ If you want to be able to access the music library you will have to do this for 
 &lt;strong&gt;It might be smart&lt;/strong&gt; to resync your phone with only a few songs/albums so you won’t be dealing with over 22GB in music.&lt;/p&gt;
 
 &lt;p&gt;First you will need to know what the id of the simulator is.&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;xcrun simctl list
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Will return a list that will tell you every id of every device&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;== Devices ==
 -- iOS 10.2 --
     iPhone 5 (8E173D11-B725-4966-B525-xxxx) (Shutdown)
@@ -94,6 +96,7 @@ In here you will find the directory &lt;code&gt;Itunes_Connect&lt;/code&gt;&lt;/
 &lt;p&gt;&lt;img src=&quot;/assets/img/ifunbox.png&quot; width=&quot;600px&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;From that directory on you will need to copy the following directories and files to the simulator directory you opened in the previous step&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;Music
 iTunes/Artwork
 iTunes/MediaLibrary.sqlitedb
