@@ -32,8 +32,7 @@ xcrun simctl list
 ```
 
 Will return a list that will tell you every id of every device
-```bash
-
+```bash  
 == Devices ==
 -- iOS 10.2 --
     iPhone 5 (8E173D11-B725-4966-B525-xxxx) (Shutdown)
@@ -72,17 +71,14 @@ Will return a list that will tell you every id of every device
     iPad Air 2 (438F5D25-8C65-4FA4-869F-xxxx) (Shutdown) (unavailable, runtime profile not found)
     iPad Pro (9.7 inch) (F10F8EE6-6B96-4C26-AFB1-xxxx) (Shutdown) (unavailable, runtime profile not found)
     iPad Pro (12.9 inch) (2F35AAF4-8D34-4969-BD82-xxxx) (Shutdown) (unavailable, runtime profile not found)
-
 ```
 
 Take down the ID of the device you require.
 
 Next we will actually navigate to the directory of this device.
 
-```bash
-
+```bash  
 [yourHD] -> Users -> [yourusername] -> Library -> Developer -> CoreSimulator -> Devices -> [the ID you obtained in the previous step] -> data -> Media -> Itunes_Control -> Itunes
-
 ```
 
 Leave this directory open as you will need it in the next step.
