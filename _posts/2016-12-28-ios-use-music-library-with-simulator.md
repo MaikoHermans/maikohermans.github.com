@@ -17,23 +17,23 @@ However this isn't true, there is a way to test this on the simulator. It will r
  - [iFunBox](http://www.i-funbox.com)
  - The id of the simulator you want to test this on
 
- #### How To  
- Now we will go into how you will actually get this working.  
- First you will need to know that you can not do this in one swoop for every simulator.  
- Every device in the simulator has it's own id and is in fact it's own device.  
- If you want to be able to access the music library you will have to do this for **every single device** you require this to work on.
+#### How To  
+Now we will go into how you will actually get this working.  
+First you will need to know that you can not do this in one swoop for every simulator.  
+Every device in the simulator has it's own id and is in fact it's own device.  
+If you want to be able to access the music library you will have to do this for **every single device** you require this to work on.
 
- What we will be doing is copying the entire music library from your phone to the simulator which will allow us to use this inside the simulator.  
- **It might be smart** to resync your phone with only a few songs/albums so you won't be dealing with over 22GB in music.
+What we will be doing is copying the entire music library from your phone to the simulator which will allow us to use this inside the simulator.  
+**It might be smart** to resync your phone with only a few songs/albums so you won't be dealing with over 22GB in music.
 
- First you will need to know what the id of the simulator is.
- ```bash
- xcrun simctl list
- ```
+First you will need to know what the id of the simulator is.
+```bash
+xcrun simctl list
+```
 
- Will return a list that will tell you every id of every device
- ```bash
- == Devices ==
+Will return a list that will tell you every id of every device
+```bash
+== Devices ==
 -- iOS 10.2 --
     iPhone 5 (8E173D11-B725-4966-B525-xxxx) (Shutdown)
     iPhone 5s (FEF4993D-DF5A-4802-B543-xxxx) (Shutdown)

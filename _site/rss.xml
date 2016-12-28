@@ -5,8 +5,8 @@
         <description>Maiko Hermans' Blog - Maiko Hermans</description>
         <link>http://username.github.io</link>
         <atom:link href="http://username.github.io/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Wed, 28 Dec 2016 17:52:05 +0100</lastBuildDate>
-        <pubDate>Wed, 28 Dec 2016 17:52:05 +0100</pubDate>
+        <lastBuildDate>Wed, 28 Dec 2016 17:54:48 +0100</lastBuildDate>
+        <pubDate>Wed, 28 Dec 2016 17:54:48 +0100</pubDate>
         <ttl>60</ttl>
 
 
@@ -24,21 +24,21 @@ However this isn’t true, there is a way to test this on the simulator. It will
   &lt;li&gt;The id of the simulator you want to test this on&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;#### How To&lt;br /&gt;
- Now we will go into how you will actually get this working.&lt;br /&gt;
- First you will need to know that you can not do this in one swoop for every simulator.&lt;br /&gt;
- Every device in the simulator has it’s own id and is in fact it’s own device.&lt;br /&gt;
- If you want to be able to access the music library you will have to do this for &lt;strong&gt;every single device&lt;/strong&gt; you require this to work on.&lt;/p&gt;
+&lt;h4 id=&quot;how-to&quot;&gt;How To&lt;/h4&gt;
+&lt;p&gt;Now we will go into how you will actually get this working.&lt;br /&gt;
+First you will need to know that you can not do this in one swoop for every simulator.&lt;br /&gt;
+Every device in the simulator has it’s own id and is in fact it’s own device.&lt;br /&gt;
+If you want to be able to access the music library you will have to do this for &lt;strong&gt;every single device&lt;/strong&gt; you require this to work on.&lt;/p&gt;
 
 &lt;p&gt;What we will be doing is copying the entire music library from your phone to the simulator which will allow us to use this inside the simulator.&lt;br /&gt;
- &lt;strong&gt;It might be smart&lt;/strong&gt; to resync your phone with only a few songs/albums so you won’t be dealing with over 22GB in music.&lt;/p&gt;
+&lt;strong&gt;It might be smart&lt;/strong&gt; to resync your phone with only a few songs/albums so you won’t be dealing with over 22GB in music.&lt;/p&gt;
 
 &lt;p&gt;First you will need to know what the id of the simulator is.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt; xcrun simctl list
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;xcrun simctl list
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Will return a list that will tell you every id of every device&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt; == Devices ==
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;== Devices ==
 -- iOS 10.2 --
     iPhone 5 (8E173D11-B725-4966-B525-xxxx) (Shutdown)
     iPhone 5s (FEF4993D-DF5A-4802-B543-xxxx) (Shutdown)

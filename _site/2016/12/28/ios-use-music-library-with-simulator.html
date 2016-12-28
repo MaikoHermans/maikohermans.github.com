@@ -149,21 +149,21 @@ However this isn’t true, there is a way to test this on the simulator. It will
   <li>The id of the simulator you want to test this on</li>
 </ul>
 
-<p>#### How To<br />
- Now we will go into how you will actually get this working.<br />
- First you will need to know that you can not do this in one swoop for every simulator.<br />
- Every device in the simulator has it’s own id and is in fact it’s own device.<br />
- If you want to be able to access the music library you will have to do this for <strong>every single device</strong> you require this to work on.</p>
+<h4 id="how-to">How To</h4>
+<p>Now we will go into how you will actually get this working.<br />
+First you will need to know that you can not do this in one swoop for every simulator.<br />
+Every device in the simulator has it’s own id and is in fact it’s own device.<br />
+If you want to be able to access the music library you will have to do this for <strong>every single device</strong> you require this to work on.</p>
 
 <p>What we will be doing is copying the entire music library from your phone to the simulator which will allow us to use this inside the simulator.<br />
- <strong>It might be smart</strong> to resync your phone with only a few songs/albums so you won’t be dealing with over 22GB in music.</p>
+<strong>It might be smart</strong> to resync your phone with only a few songs/albums so you won’t be dealing with over 22GB in music.</p>
 
 <p>First you will need to know what the id of the simulator is.</p>
-<pre><code class="language-bash"> xcrun simctl list
+<pre><code class="language-bash">xcrun simctl list
 </code></pre>
 
 <p>Will return a list that will tell you every id of every device</p>
-<pre><code class="language-bash"> == Devices ==
+<pre><code class="language-bash">== Devices ==
 -- iOS 10.2 --
     iPhone 5 (8E173D11-B725-4966-B525-xxxx) (Shutdown)
     iPhone 5s (FEF4993D-DF5A-4802-B543-xxxx) (Shutdown)
