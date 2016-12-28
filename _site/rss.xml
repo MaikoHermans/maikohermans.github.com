@@ -5,8 +5,8 @@
         <description>Maiko Hermans' Blog - Maiko Hermans</description>
         <link>http://username.github.io</link>
         <atom:link href="http://username.github.io/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Wed, 28 Dec 2016 17:54:48 +0100</lastBuildDate>
-        <pubDate>Wed, 28 Dec 2016 17:54:48 +0100</pubDate>
+        <lastBuildDate>Wed, 28 Dec 2016 17:56:39 +0100</lastBuildDate>
+        <pubDate>Wed, 28 Dec 2016 17:56:39 +0100</pubDate>
         <ttl>60</ttl>
 
 
@@ -38,7 +38,8 @@ If you want to be able to access the music library you will have to do this for 
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Will return a list that will tell you every id of every device&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;== Devices ==
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;
+== Devices ==
 -- iOS 10.2 --
     iPhone 5 (8E173D11-B725-4966-B525-xxxx) (Shutdown)
     iPhone 5s (FEF4993D-DF5A-4802-B543-xxxx) (Shutdown)
@@ -76,13 +77,16 @@ If you want to be able to access the music library you will have to do this for 
     iPad Air 2 (438F5D25-8C65-4FA4-869F-xxxx) (Shutdown) (unavailable, runtime profile not found)
     iPad Pro (9.7 inch) (F10F8EE6-6B96-4C26-AFB1-xxxx) (Shutdown) (unavailable, runtime profile not found)
     iPad Pro (12.9 inch) (2F35AAF4-8D34-4969-BD82-xxxx) (Shutdown) (unavailable, runtime profile not found)
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Take down the ID of the device you require.&lt;/p&gt;
 
 &lt;p&gt;Next we will actually navigate to the directory of this device.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;[yourHD] -&amp;gt; Users -&amp;gt; [yourusername] -&amp;gt; Library -&amp;gt; Developer -&amp;gt; CoreSimulator -&amp;gt; Devices -&amp;gt; [the ID you obtained in the previous step] -&amp;gt; data -&amp;gt; Media -&amp;gt; Itunes_Control -&amp;gt; Itunes
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;
+[yourHD] -&amp;gt; Users -&amp;gt; [yourusername] -&amp;gt; Library -&amp;gt; Developer -&amp;gt; CoreSimulator -&amp;gt; Devices -&amp;gt; [the ID you obtained in the previous step] -&amp;gt; data -&amp;gt; Media -&amp;gt; Itunes_Control -&amp;gt; Itunes
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Leave this directory open as you will need it in the next step.&lt;/p&gt;
